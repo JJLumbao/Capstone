@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
 
     username: string = ""
     password: string = ""
+    res: any ={}
     constructor(public afAuth: AngularFireAuth, private router: Router) { }
 
     ngOnInit() {
@@ -22,19 +23,32 @@ export class LoginPage implements OnInit {
       const { username, password } = this
       try { 
           const res= await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
-          if(res){
+          console.log(res)
+          if(res.user){
             Swal.fire({
-              title: `Welcome`,
-              text: `Logged in successfully`,
-              icon: `success`
-          }).then(()=>{
-            this.router.navigate(['tabs/Summary'])
-          })
+                title: `Welcome`,
+                text: `Logged in successfully`,
+                icon: `success`
+            }).then(()=>{
+              this.router.navigate(['tabs/Summary'])
+            })
           }
       }catch(err) {
-        console.dir(err)
+        Swal.fire({
+          title: `Error`,
+          text: `Invalid Username or Password!`,
+          icon: `error`
+        }).then(()=>{
+          this.router.navigate([''])
+        })
         if(err.code === "auth/user-not-found"){
-          console.log("User not found")
+          Swal.fire({
+            title: `Error`,
+            text: `User not found!`,
+            icon: `error`
+          }).then(()=>{
+            this.router.navigate([''])
+          })
         }
     }
   }
