@@ -34,8 +34,8 @@ export class RegisterPage implements OnInit {
     try{
       const res= await this.afAuth.auth.createUserWithEmailAndPassword( username + '@gmail.com', password)
       console.log(res)
-      this.showAlert("Success!", "Welcome!")
-      this.router.navigate(['/tabs'])
+      this.showAlert("Success!", "Account Created")
+      this.router.navigate(['/login'])
      }catch(error){
       console.dir(error)
       this.showAlert("Error!", error.message)
@@ -49,5 +49,6 @@ export class RegisterPage implements OnInit {
      })
      
       await alert.present()
+      
   }
 }
