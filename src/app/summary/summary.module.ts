@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SummaryPageRoutingModule } from './summary-routing.module';
 
 import { SummaryPage } from './summary.page';
+import { DatePickerModule } from 'ionic-calendar-date-picker'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SummaryPageRoutingModule
+    SummaryPageRoutingModule,
+    DatePickerModule
   ],
   declarations: [SummaryPage]
 })
