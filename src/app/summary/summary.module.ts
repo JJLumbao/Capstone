@@ -20,7 +20,8 @@ import { DatehistoryPageModule } from '../modals/datehistory/datehistory.module'
     SummaryPageRoutingModule,
     DatePickerModule,
     CalendarModule,
-    DatehistoryPageModule
+    DatehistoryPageModule,
+    IonicModule.forRoot()
   ],
   declarations: [SummaryPage]
 })

@@ -15,5 +15,30 @@
           >
         </ion-calendar>
     </ion-card-content>
-</ion-card>
+  </ion-card>
+</ion-content>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+    <ion-item *ngFor="let user of users | slice:0:10;">
+      <ion-avatar slot="start">
+        <img [src]="user.picture.medium">
+      </ion-avatar>
+
+      <ion-label>
+        <h2 text-capitalize>{{ user.name?.first }} {{ user.name?.last }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+
+    </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-infinite-scroll threshold="5%" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more users...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
 </ion-content>

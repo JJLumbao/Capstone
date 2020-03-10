@@ -29,7 +29,8 @@ import { calendarController } from 'ion2-calendar/dist/calendar.module';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     DatePickerModule,
-    CalendarModule
+    CalendarModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
