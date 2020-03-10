@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { Router } from '@angular/router'
-
-import { AlertController } from '@ionic/angular'
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +13,8 @@ export class LoginPage implements OnInit {
 
     username: string = ""
     password: string = ""
-
-    constructor(
-      public afAuth: AngularFireAuth,
-      public alert: AlertController,
-      public router: Router) { }
+    res: any ={}
+    constructor(public afAuth: AngularFireAuth, private router: Router) { }
 
     ngOnInit() {
     }
@@ -27,23 +23,43 @@ export class LoginPage implements OnInit {
       const { username, password } = this
       try { 
           const res= await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
-          this.showAlert("Success!", "Welcome!")
-          this.router.navigate(['/tabs'])
+          console.log(res)
+          if(res.user){
+            Swal.fire({
+                title: `Welcome`,
+                text: `Logged in successfully`,
+                icon: `success`
+            }).then(()=>{
+              this.router.navigate(['tabs/Summary'])
+            })
+          }
       }catch(err) {
-        console.dir(err)
+        Swal.fire({
+          title: `Error`,
+          text: `Invalid Username or Password!`,
+          icon: `error`
+        }).then(()=>{
+          this.router.navigate([''])
+        })
         if(err.code === "auth/user-not-found"){
-          console.log("User not found")
+          Swal.fire({
+            title: `Error`,
+            text: `User not found!`,
+            icon: `error`
+          }).then(()=>{
+            this.router.navigate([''])
+          })
         }
         }
     }
-    async showAlert(header: string, message: string){
-      const alert = await this.alert.create({
-         header,
-         message,
-         buttons: ["Ok"]
-      })
+  //   async showAlert(header: string, message: string){
+  //     const alert = await this.alert.create({
+  //        header,
+  //        message,
+  //        buttons: ["Ok"]
+  //     })
       
-       await alert.present()
-   }
+  //      await alert.present()
+  //  }
   
 }
