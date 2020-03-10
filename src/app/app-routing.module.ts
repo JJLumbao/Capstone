@@ -14,7 +14,15 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },  {
+    path: 'datehistory',
+    loadChildren: () => import('./modals/datehistory/datehistory.module').then( m => m.DatehistoryPageModule)
+  },
+  {
+    path: 'ratedate',
+    loadChildren: () => import('./modals/ratedate/ratedate.module').then( m => m.RatedatePageModule)
   }
+
 ];
 
 @NgModule({

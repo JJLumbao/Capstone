@@ -14,6 +14,9 @@ import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http'
+import { DatePickerModule } from 'ionic4-date-picker';
+import { CalendarModule } from 'ion2-calendar';
+import { calendarController } from 'ion2-calendar/dist/calendar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +28,8 @@ import { HttpModule } from '@angular/http'
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    DatePickerModule,
+    CalendarModule
   ],
   providers: [
     StatusBar,

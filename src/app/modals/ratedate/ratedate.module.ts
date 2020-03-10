@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { TabsRoutingModule } from './tabs.router.module'
-import { TabsPage } from './tabs.page';
-import { DatePickerModule } from 'ionic4-date-picker';
+
+import { RatedatePageRoutingModule } from './ratedate-routing.module';
+
+import { RatedatePage } from './ratedate.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabsRoutingModule,
-    DatePickerModule
+    RatedatePageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [RatedatePage]
 })
-export class TabsPageModule {}
+export class RatedatePageModule {}

@@ -7,84 +7,13 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <ion-item>
-        <ionic-calendar-date-picker (onSelect)="dateSelected($event)"></ionic-calendar-date-picker>	
-      </ion-item>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Entry</ion-card-title>
-        </ion-card-header>
-      </ion-card> 
+        <ion-calendar [(ngModel)]="date"
+          (change)="onChange($event)"
+          [type]="type"
+          [format]="'YYYY-MM-DD'"
+          [options]="optionsRange"
+          >
+        </ion-calendar>
     </ion-card-content>
-  </ion-card>
-<ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 1</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 2</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 3</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 4</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 5</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 6</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 7</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 8</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 9</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Day 10</ion-card-subtitle>
-      <ion-card-title>Entry</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
 </ion-card>
 </ion-content>
