@@ -5,21 +5,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card style="height: 55vh;">
     <ion-card-content>
         <ion-calendar [(ngModel)]="date"
           (change)="onChange($event)"
           [type]="type"
           [format]="'YYYY-MM-DD'"
           [options]="optionsRange"
+          height = "100vh"
           >
         </ion-calendar>
     </ion-card-content>
   </ion-card>
-</ion-content>
 
-<ion-content>
-  <ion-card>
+
+
+  <ion-card style="height: 20vh; overflow-y: scroll">
     <ion-card-content>
     <ion-item *ngFor="let user of users | slice:0:10;">
       <ion-avatar slot="start">
