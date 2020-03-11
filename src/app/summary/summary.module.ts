@@ -10,6 +10,7 @@ import { SummaryPage } from './summary.page';
 import { DatePickerModule } from 'ionic4-date-picker';
 import { CalendarModule } from 'ion2-calendar';
 import { DatehistoryPageModule } from '../modals/datehistory/datehistory.module';
+import { RatedatePageModule } from '../modals/ratedate/ratedate.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DatehistoryPageModule } from '../modals/datehistory/datehistory.module'
     DatePickerModule,
     CalendarModule,
     DatehistoryPageModule,
+    RatedatePageModule,
     IonicModule.forRoot()
   ],
   declarations: [SummaryPage]

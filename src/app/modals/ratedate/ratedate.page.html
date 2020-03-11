@@ -1,9 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ratedate</ion-title>
+    <ion-title>Describe Your Day</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="text-align: center;">
+  <div style="display: flex; justify-content: space-around;">
+    <div style="display: flex; flex-direction: column;">
+      <a href="javascript:void(0)" style="text-decoration: none; color: white;">
+      <i class="material-icons" style="font-size: 50px;">sentiment_very_dissatisfied</i>
+      <p>Agonizing</p>
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <a href="javascript:void(0)" style="text-decoration: none; color: white;">
+        <i class="material-icons" style="font-size: 50px;">mood_bad</i>
+      </a>
+      <p>Bad</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <a href="javascript:void(0)" style="text-decoration: none; color: white;">
+        <i class="material-icons" style="font-size: 50px;">sentiment_satisfied</i>
+      </a>
+      <p>Fine</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <a href="javascript:void(0)" style="text-decoration: none; color: white;">
+        <i class="material-icons" style="font-size: 50px;">mood</i>
+      </a>
+      <p>Happy</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <a href="javascript:void(0)" style="text-decoration: none; color: white;">
+        <i class="material-icons" style="font-size: 50px;">sentiment_very_satisfied</i>
+      </a>
+      <p>Overjoyed</p>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column;">
+    <p>{{selected}}</p>
+    <textarea name="" id="" cols="30" rows="10" style="background-color: black;text-decoration: underline; text-align: justify;" placeholder="Dear Diary,">Dear Diary,
 
+</textarea>
+    <ion-button (click)="dismiss()">CLOSE</ion-button>
+  </div>
 </ion-content>

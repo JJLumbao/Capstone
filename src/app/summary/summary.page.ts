@@ -4,6 +4,7 @@ import { CalendarModalOptions } from 'ion2-calendar';
 import { ModalController } from '@ionic/angular';
 import { DatehistoryPage } from '../modals/datehistory/datehistory.page';
 import { HttpClient } from '@angular/common/http';
+import { RatedatePage } from '../modals/ratedate/ratedate.page';
 
 @Component({
   selector: 'app-summary',
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SummaryPage implements OnInit {
   date
-  datenow = moment().format('x')
+  datenow = moment()
   optionsRange: CalendarModalOptions = {
     canBackwardsSelected: true,
   };
@@ -30,16 +31,15 @@ export class SummaryPage implements OnInit {
   }
   onChange(e) {
     console.log(moment(e._i).format('x'))
-    if(moment(e._i).format('x')>this.datenow){
-      console.log('do nothing')
+    if(moment(e._i).format('x')>this.datenow.format('x')){
       return
     }
-    if(moment(e._i).format('x')<this.datenow){
-      console.log('open date modal')
-      this.presentModal(moment(e._i).format('MMMM Do YYYY'))
+    if(moment(e._i).format('MM DD YYYY')==this.datenow.format('MM DD YYYY')){
+      this.presentModalRate(moment(e._i).format('MMMM Do YYYY'))
       return
-    } else{
-      console.log('open rate date modal')
+    }
+    if(moment(e._i).format('x')<this.datenow.format('x')){
+      this.presentModal(moment(e._i).format('MMMM Do YYYY'))
       return
     }
   }
@@ -47,6 +47,16 @@ export class SummaryPage implements OnInit {
   async presentModal(d) {
     const modal = await this.modalController.create({
       component: DatehistoryPage,
+      componentProps: {
+        'selectedDate': d,
+      }
+    });
+    return await modal.present();
+  }
+
+  async presentModalRate(d) {
+    const modal = await this.modalController.create({
+      component: RatedatePage,
       componentProps: {
         'selectedDate': d,
       }
